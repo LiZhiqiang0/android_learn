@@ -47,7 +47,6 @@
         android:fontFamily="sans-serif"
         android:text="Jayson"
         android:textColor="#263456"
-
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView"

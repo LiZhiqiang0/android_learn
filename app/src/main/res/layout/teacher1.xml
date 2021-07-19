@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="328dp"
+    android:layout_height="70dp"
+    android:background="@drawable/rectangle1">
+
+    <ImageView
+        android:layout_width="115dp"
+        android:layout_height="70dp"
+        android:src="@drawable/question"
+        />
+    <ImageView
+        android:id="@+id/teacher"
+        android:layout_width="64dp"
+        android:layout_height="68dp"
+        android:src="@drawable/teacher"
+        android:layout_marginLeft="16dp"
+        />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/group1"
+        android:layout_marginLeft="16dp"
+        />
+    <TextView
+        android:id="@+id/ask"
+        style="@style/home_ask"
+        android:layout_width="128dp"
+        android:layout_height="20dp"
+        android:text="@string/ask"
+        android:layout_toRightOf="@+id/teacher"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="14dp"
+        />
+    <TextView
+        style="@style/home_ask"
+        android:layout_width="128dp"
+        android:layout_height="20dp"
+        android:text="@string/get_solution"
+        android:layout_toRightOf="@+id/teacher"
+        android:layout_marginLeft="8dp"
+        android:layout_below="@+id/ask"
+        android:layout_marginTop="2dp"
+        />
+    <ImageButton
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/arrow"
+        android:layout_marginTop="21dp"
+        android:layout_marginLeft="284dp"
+        />
+
+    <Button
+        style="@style/home_free"
+        android:layout_width="59dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="0dp"
+        android:background="@drawable/rectangle2"
+        android:text="Free Trial"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

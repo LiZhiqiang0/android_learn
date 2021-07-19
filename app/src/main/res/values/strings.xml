@@ -1,3 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">My Application2</string>
+    <string name="snap">Snap &amp; Solve Doubts</string>
+    <string name="get_math">Get Maths, Physics, Chemistry, Biology,\nScience solutions instantly</string>
+    <string name="ask">Ask Tutors Online</string>
+    <string name="get_solution">Get Solution in 10 mins</string>
 </resources>
