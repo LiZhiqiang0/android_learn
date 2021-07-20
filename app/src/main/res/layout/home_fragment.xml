@@ -20,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="430dp"
                 android:background="@drawable/background1"
+                android:paddingTop="22dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="MissingConstraints">
@@ -44,12 +45,13 @@
                     android:id="@+id/imageButton3"
                     android:layout_width="44dp"
                     android:layout_height="32dp"
-                    android:layout_marginStart="252dp"
-                    android:layout_marginLeft="252dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
                     android:background="@drawable/search"
                     app:layout_constraintBottom_toBottomOf="@+id/button4"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/button4" />
+                    app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+                    app:layout_constraintTop_toTopOf="@+id/button4"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <ImageButton
                     android:id="@+id/imageButton2"
@@ -118,7 +120,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="430dp"
-                android:layout_marginTop="352dp"
+                android:layout_marginTop="374dp"
                 android:background="@drawable/background2"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -126,9 +128,11 @@
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/viewpager_Online"
-                    android:layout_width="328dp"
+                    android:layout_width="0dp"
                     android:layout_height="70dp"
                     android:layout_marginTop="24dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -161,11 +165,16 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="227dp"
                     android:layout_marginTop="160dp"
+                    android:elevation="2dp"
+                    android:outlineProvider="background"
+                    android:outlineSpotShadowColor="#B7BCCA"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     app:layout_constraintTop_toTopOf="parent">
                     <include layout="@layout/subject"></include>
                 </androidx.constraintlayout.widget.ConstraintLayout>

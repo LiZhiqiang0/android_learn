@@ -1,6 +1,7 @@
 package com.example.myapplication2;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -11,7 +12,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Layout;
@@ -19,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -45,24 +49,20 @@ public class MainActivity extends AppCompatActivity {
     private List<PageFragment> fragments = new ArrayList<>();
     private ViewPager viewPager;
     private TabLayout tabLayout;
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-        //设置状态栏
-        if (Build.VERSION.SDK_INT >= 21) {
-            View decorView = getWindow().getDecorView();
-            int option = View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                    | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-            decorView.setSystemUiVisibility(option);
-//            getWindow().setNavigationBarColor(Color.TRANSPARENT);
-//            设置通知栏颜色为透明
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-            getWindow().getDecorView().setSystemUiVisibility(SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
+        View decorView = getWindow().getDecorView();
+        //状态栏透明&改变字体颜色
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN|SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.TRANSPARENT);
         }
-
+        setContentView(R.layout.activity_home);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction =fragmentManager.beginTransaction();
         HomeFragment homeFragment = new HomeFragment();
@@ -88,41 +88,8 @@ public class MainActivity extends AppCompatActivity {
             actionBar.hide();
         }
 
-
-
-//        initTabData();
-//        initTabView();
-
-//        initPersonInfos();
-//        PersonInfoAdapter adapter = new PersonInfoAdapter(MainActivity.this, R.layout.personinfo_item, personInfoList);
-//        ListView listView = (ListView) findViewById(R.id.list_aa);
-//        listView.setAdapter(adapter);
-//        initPersonInfos();
-//        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.reycler_view);
-//        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//        PersonInfoRecyclerViewAdapter adapter = new PersonInfoRecyclerViewAdapter(personInfoList);
-//        recyclerView.setAdapter(adapter);
     }
 
-    private void initPersonInfos(){
-        PersonInfo pro = new PersonInfo("Pro Learner Missions", R.drawable.pro, "30% Achieved");
-        personInfoList.add(pro);
-        PersonInfo questions = new PersonInfo("Questions You Asked", R.drawable.group, "");
-        personInfoList.add(questions);
-        PersonInfo bookmarks = new PersonInfo("Bookmarks", R.drawable.bookmark, "");
-        personInfoList.add(bookmarks);
-        PersonInfo history = new PersonInfo("Recently Viewed", R.drawable.history, "");
-        personInfoList.add(history);
-        PersonInfo share = new PersonInfo("Share with Friends", R.drawable.share, "");
-        personInfoList.add(share);
-        PersonInfo settings = new PersonInfo("Settings", R.drawable.settings, "");
-        personInfoList.add(settings);
-        PersonInfo rect = new PersonInfo("", R.drawable.rectangle, "");
-        personInfoList.add(rect);
-        PersonInfo tutor = new PersonInfo("SnapSolve Tutor", R.drawable.tutor, "");
-        personInfoList.add(tutor);
-    }
 
     private void onClickMe(MeFragment meFragment){
         TextView textHome = (TextView) findViewById(R.id.text_home);
@@ -154,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
         fragmentTransaction.replace(R.id.frame_layout, homeFragment);
         fragmentTransaction.commit();
     }
+
+
 
 
 
